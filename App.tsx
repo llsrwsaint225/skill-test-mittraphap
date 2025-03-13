@@ -1,20 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Platform } from 'react-native';
 
-export default function App() {
+import { LinearGradient } from 'expo-linear-gradient';
+import { RoundedRectangle } from './components/RoundedRectangle'
+import { NavigationBar } from './components/NavigationBar'
+
+export default function HomeScreen() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <LinearGradient
+      colors={["#ABCDEF", "#FEDCBA"]}
+      style={styles.gradientBackground}
+    >
+      <NavigationBar></NavigationBar>
+      <RoundedRectangle></RoundedRectangle>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  gradientBackground: {
     flex: 1,
-    backgroundColor: '#fff',
+    padding: 16,
+  },
+  titleContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    gap: 8,
+  },
+  stepContainer: {
+    gap: 8,
+    marginBottom: 8,
+  },
+  reactLogo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
   },
 });
